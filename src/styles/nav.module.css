@@ -1,0 +1,29 @@
+.nav {
+  /* Styles for your navigation */
+  display: flex;  /* Make nav items horizontal */
+  gap: 20px; /* Space between nav items */
+  list-style: none;
+  font-size: 1.4em;
+}
+
+.nav a {
+  color: var(--black); /* Default link color */
+  transition: color 0.3s ease; /* Smooth transition for color changes */
+}
+
+.nav a:hover {
+  color: var(--white); /* Hover color */
+}
+
+.nav a:active {
+  color: var(--gray-50); /* Color when actively clicked */
+}
+
+@media (max-width: 768px) {  /* Example breakpoint */
+  .nav {
+    margin-top: 10px; /* Add some space between logo and nav */
+    flex-direction: row; /* Nav links are vertical now */
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

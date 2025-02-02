@@ -1,14 +1,15 @@
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/header"
+import ProfileBody from "@/components/profile_body"
 import Footer from "@/components/footer"
-import Main from '@/components/main'
 
-export default function Home() {
+
+export default function Profile() {
   return (
     <div>
       <Header />
 
-      <Main />
+      <ProfileBody />
 
       <Footer />
     </div>
