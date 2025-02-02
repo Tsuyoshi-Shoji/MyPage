@@ -1,0 +1,134 @@
+.profile_body {
+    display: flex;
+    align-items: center;
+    /* 垂直方向中央揃え */
+    justify-content: center;
+    /* 水平方向中央揃え */
+    padding: 40px;
+    background-color: var(--cyan);
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+.icon_section {
+    display: flex;
+    justify-content: center;
+    /* 水平方向の中央揃え */
+    align-items: center;
+    /* 垂直方向の中央揃えも必要なら */
+    flex-direction: column;
+    /* 縦並びに指定 */
+    width: 50%;
+    /* 必要に応じて調整 */
+    height: 100%;
+    gap: 2em;
+    background-color: var(--cyan);
+}
+
+.profile_icon {
+    /* アイコンのスタイル */
+    width: 100px;
+    /* サイズを調整 */
+    height: 100px;
+    border-radius: 50%;
+    /* 丸くする */
+    object-fit: cover;
+    /* 画像のアスペクト比を維持 */
+    margin-bottom: 10px;
+    /* 下のマージンで名前との間隔を調整 */
+}
+
+.profile_name_wrapper {
+    /* .profile_name のラッパー */
+    position: relative;
+    /* 相対位置指定 */
+    display: inline-block;
+    /* 幅を内容に合わせて調整 */
+}
+
+.profile_name {
+    color: var(--black);
+    font-size: 48px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 5px;
+    font-family: Impact, Arial, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    /* Smooth transition for color changes */
+}
+
+.profile_name:hover {
+    color: black;
+}
+
+.profile_name:active {
+    color: var(--white);
+}
+
+.detail_popup {
+    position: absolute;
+    top: 100%;
+    /* .profile_name の下端からの位置 */
+    left: 0;
+    width: 100%;
+    /* .profile_name の幅に合わせる */
+    font-size: 18px;
+    padding: 10px;
+    z-index: 1;
+    box-sizing: border-box;
+    /* paddingを含めた幅にする */
+}
+
+.profile_section {
+    width: 50%;
+    /* 必要に応じて調整 */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* 水平方向の中央揃え */
+    flex-direction: column;
+    /* 縦並びに指定 */
+    background-color: var(--cyan);
+}
+
+.detail_item {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--black);
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 5px;
+    font-family: Impact, Arial, sans-serif;
+    text-align: center;
+}
+
+.detail_item:hover {
+    color: var(--white);
+}
+
+.screenOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 2000;
+    pointer-events: none;
+    animation: slideDown 0.2s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+    0% {
+      transform: translateY(-100%); /* 開始位置: 画面上部 */
+      opacity: 0; /* 非表示 */
+    }
+    100% {
+      transform: translateY(0); /* 終了位置: 元の位置 */
+      opacity: 1; /* 表示 */
+    }
+  }

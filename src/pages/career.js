@@ -1,14 +1,14 @@
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import Main from '@/components/main'
+import Career_body from '@/components/career_body'
 
-export default function Home() {
+export default function Career() {
   return (
     <div>
       <Header />
 
-      <Main />
+      <Career_body />
 
       <Footer />
     </div>
