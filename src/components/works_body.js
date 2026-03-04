@@ -1,44 +1,12 @@
 import styles from "@/styles/works_body.module.css";
 import { useRef, useState, useEffect } from "react";
+import { WORKS_DATA } from "@/res/worksData";
 
 export default function Works_body() {
   const scrollContainerRef = useRef(null);
   const progressBarRef = useRef(null);
   const [visibleWorks, setVisibleWorks] = useState(new Set());
   const [isDraggingProgress, setIsDraggingProgress] = useState(false);
-
-  const WORKS_DATA = [
-    {
-      id: 1,
-      name: "Portfolio Site",
-      thumbnail: "./favicon.ico",
-      url: "#"
-    },
-    {
-      id: 2,
-      name: "Web App Project",
-      thumbnail: "./favicon.ico",
-      url: "#"
-    },
-    {
-      id: 3,
-      name: "Design System",
-      thumbnail: "./favicon.ico",
-      url: "#"
-    },
-    {
-      id: 4,
-      name: "Mobile App",
-      thumbnail: "./favicon.ico",
-      url: "#"
-    },
-    {
-      id: 5,
-      name: "E-commerce Site",
-      thumbnail: "./favicon.ico",
-      url: "#"
-    }
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(

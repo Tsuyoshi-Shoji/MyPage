@@ -1,0 +1,136 @@
+.locate_body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.locate_container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.locate_title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--white);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(65, 135, 255, 0.8), 0 0 40px rgba(30, 100, 200, 0.6);
+}
+
+.map_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.map_container {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  border-radius: 15px;
+  border: 2px solid rgba(65, 135, 255, 0.6);
+  box-shadow: 0 0 20px rgba(65, 135, 255, 0.3);
+  overflow: hidden;
+}
+
+.map_container :global(.leaflet-container) {
+  border-radius: 15px;
+}
+
+.locate_info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border: 2px solid rgba(255, 105, 180, 0.6);
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(255, 105, 180, 0.05) 0%, rgba(219, 39, 119, 0.05) 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+}
+
+.city_name {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--white);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+.info_text {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: rgba(255, 105, 180, 0.8);
+  margin: 0;
+  font-weight: 500;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.detail_item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-left: 3px solid rgba(255, 105, 180, 0.6);
+  padding-left: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.label {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: rgba(255, 105, 180, 0.9);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.value {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: var(--white);
+  font-weight: 500;
+}
+
+.popup {
+  font-family: Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .locate_body {
+    padding: 20px 15px;
+  }
+
+  .locate_container {
+    gap: 20px;
+  }
+
+  .map_wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .map_container {
+    height: 350px;
+  }
+
+  .locate_info {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .detail_item {
+    padding: 10px;
+    padding-left: 12px;
+  }
+}

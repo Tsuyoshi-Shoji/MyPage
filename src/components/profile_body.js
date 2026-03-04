@@ -1,5 +1,9 @@
 import styles from "@/styles/profile_body.module.css"
-import { useState, useRef } from "react";
+import hobbiesStyles from "@/styles/hobbies_contents.module.css"
+import { useState, useRef } from "react"
+import LocateBody from "@/components/locate_body"
+import HistoryContents from "@/components/history_contents"
+import { HOBBIES_DATA } from "@/res/hobbiesData"
 
 export default function Profile_body() {
   const [isVisible, setIsVisible] = useState(false);
@@ -136,6 +140,21 @@ export default function Profile_body() {
     </div>
   );
 
+  const hobbiesContent = (
+    <div className={hobbiesStyles.hobbies_container}>
+      <h3 className={hobbiesStyles.hobbies_title}>趣味</h3>
+      <div className={hobbiesStyles.hobbies_list}>
+        {HOBBIES_DATA.map((hobby) => (
+          <div key={hobby.id} className={hobbiesStyles.hobby_item}>
+            <h4 className={hobbiesStyles.hobby_title}>{hobby.title}</h4>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const historyContent = <HistoryContents />;
+
   const handleItemMouseLeave = () => {
     setOverlayContent(null);
   };
@@ -166,7 +185,7 @@ export default function Profile_body() {
       <div className={styles.profile_section}>
         <div className={styles.profile_item}>
           {[
-            "Locate", "Skills", "Hobbies", "Types", "Gadget"
+            "Location", "Skills", "Hobbies", "History"
           ].map((item, index) => (
             <div
               key={index}
@@ -176,6 +195,12 @@ export default function Profile_body() {
               onMouseEnter={isVisible ? () => {
                 if (item === "Skills") {
                   handleItemMouseEnter(skillsContent);
+                } else if (item === "Location") {
+                  handleItemMouseEnter(<LocateBody />);
+                } else if (item === "Hobbies") {
+                  handleItemMouseEnter(hobbiesContent);
+                } else if (item === "History") {
+                  handleItemMouseEnter(historyContent);
                 } else {
                   handleItemMouseEnter(item + " Overlay Content");
                 }
