@@ -5,9 +5,9 @@
   --gray-25: #aaaaaa;
   --gray-50: #707070;
   --gray-75: #444444;
-  --black: #222222;
-  --cyan: #00afffff;
-  --accent: #0d87e0;
+  --black: #000000;
+  --main-theme: #393f4c;
+  --body-color: #b0b8c8;
 
   /* styles */
   --body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
@@ -28,8 +28,10 @@
   --space-jump: clamp(1.25rem, 0.35rem + 3.8vw, 3.75rem);
 
   /* compornent height */
-  --header-height: 100px; /* header の高さ */
-  --footer-height: 100px;
+  --header-height: 78px;
+  --footer-height: 78px;
+  --radius: 15px;
+  --border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -43,7 +45,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--cyan);
+  background-color: var(--black);
 }
 
 body {

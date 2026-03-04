@@ -1,29 +1,39 @@
 .nav {
-  /* Styles for your navigation */
-  display: flex;  /* Make nav items horizontal */
-  gap: 20px; /* Space between nav items */
+  display: flex;
+  gap: 20px;
   list-style: none;
   font-size: 1.4em;
 }
 
+.nav li {
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav li:hover {
+  background-color: var(--main-theme);
+}
+
 .nav a {
-  color: var(--black); /* Default link color */
-  transition: color 0.3s ease; /* Smooth transition for color changes */
+  color: var(--white);
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
-.nav a:hover {
-  color: var(--white); /* Hover color */
+.nav li.active a {
+  color: #c8a96e;
 }
 
-.nav a:active {
-  color: var(--gray-50); /* Color when actively clicked */
-}
-
-@media (max-width: 768px) {  /* Example breakpoint */
+@media (max-width: 768px) {
   .nav {
-    margin-top: 10px; /* Add some space between logo and nav */
-    flex-direction: row; /* Nav links are vertical now */
+    margin-top: 10px;
+    flex-direction: row;
     align-items: flex-start;
     gap: 10px;
+  }
+
+  .nav li {
+    padding: 6px 10px;
   }
 }

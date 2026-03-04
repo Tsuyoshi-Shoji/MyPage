@@ -7,9 +7,9 @@ export default function Header() {
     <header className={styles.header}>
       <Link href="/" legacyBehavior   >
         <div className={styles.logo}>
-          <span className={styles.made}>MADE</span>{' '}
-          <span className={styles.by}> By </span>
-          <span className={styles.Tsuyoshi}>Tsuyoshi Shoji</span>
+          <span className={styles.portfolio}>Portfolio</span>
+          <span className={styles.createdBy}> created by </span>
+          <span className={styles.name}>Tsuyoshi Shoji</span>
         </div>
       </Link>
 

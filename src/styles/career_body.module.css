@@ -1,41 +1,186 @@
 .language_toggle_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    height: calc(100vh - var(--header-height) - var(--footer-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40px 20px;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  background-color: var(--black);
+  overflow: hidden;
+}
+
+.button_container {
+  display: flex;
+  gap: 0;
+  margin-bottom: 40px;
 }
 
 .button {
-    padding: 15px 80px;
-    font-weight: bold;
-    border: 1px solid black;
-    cursor: pointer;
-    background-color: transparent;
-    color: black;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 1.2em;
+  padding: 15px 80px;
+  font-weight: bold;
+  border: 1px solid var(--white);
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--white);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  font-size: 1.2em;
 }
 
 .button.selected {
-    background-color: black;
-    color: white;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 .button:first-child {
-    border-radius: 10px 0 0 10px;
+  border-radius: 10px 0 0 10px;
 }
 
 .button:last-child {
-    border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
 }
 
-.iframe {
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    width: 90%;
-    flex-grow: 1;
-    overflow: scroll;
+.career_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.career_list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.career_list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.career_list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.career_list::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.career_list.transitioning {
+  opacity: 0;
+}
+
+.career_card {
+  border-radius: var(--radius);
+  border: var(--border);
+  background-color: rgba(255, 255, 255, 0.05);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.career_card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(
+    from 210deg,
+    rgba(38, 246, 255, 0),
+    rgba(38, 246, 255, 0.55),
+    rgba(255, 61, 242, 0.45),
+    rgba(38, 246, 255, 0)
+  );
+  filter: blur(14px);
+  opacity: 0.35;
+  pointer-events: none;
+  border-radius: var(--radius);
+}
+
+.card_inner {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.03)
+  );
+  backdrop-filter: blur(10px);
+  padding: 18px 18px 16px;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: var(--radius);
+}
+
+.career_card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project_title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--white);
+  margin: 0 0 15px 0;
+  border-bottom: 1px solid var(--white);
+  padding-bottom: 10px;
+}
+
+.career_item {
+  display: flex;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.label {
+  font-weight: bold;
+  min-width: 120px;
+  color: var(--white);
+}
+
+.value {
+  color: var(--white);
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .language_toggle_container {
+    padding: 20px 10px;
+  }
+
+  .button {
+    padding: 12px 40px;
+    font-size: 1em;
+  }
+
+  .career_list {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .career_card {
+    padding: 15px;
+  }
+
+  .project_title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .label {
+    min-width: 100px;
+    font-size: 0.9em;
+  }
 }

@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className= {styles.footer}>
             <Social />
-            <p>© 2025 Tsuyoshi Shoji</p> 
+            <p>© 2026 Tsuyoshi Shoji</p> 
         </footer>
     )
   }
