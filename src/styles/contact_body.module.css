@@ -1,0 +1,253 @@
+.contact_body {
+  min-height: 100vh;
+  background: var(--black);
+  padding: 60px 20px;
+  color: white;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.contact_container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact_title {
+  font-size: 3.5rem;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(0, 255, 127, 0.6),
+    0 0 40px rgba(0, 255, 127, 0.4);
+}
+
+.contact_content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact_item {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, rgba(0, 255, 127, 0.5), rgba(0, 255, 127, 0.5)) 1;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.contact_item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-image: linear-gradient(135deg, rgba(0, 255, 127, 0.8), rgba(0, 255, 127, 0.8)) 1;
+  box-shadow: 0 0 30px rgba(0, 255, 127, 0.3);
+}
+
+.icon_wrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 2rem;
+  color: rgba(0, 255, 127, 0.8);
+  transition: all 0.3s ease;
+}
+
+.contact_item:hover .icon {
+  color: rgba(0, 255, 127, 0.9);
+  text-shadow: 0 0 15px rgba(0, 255, 127, 0.6);
+}
+
+.line_button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 2rem;
+  color: rgba(255, 105, 180, 0.8);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line_button:hover {
+  color: rgba(65, 135, 255, 0.9);
+  text-shadow: 0 0 15px rgba(65, 135, 255, 0.6);
+  transform: scale(1.1);
+}
+
+.info_wrapper {
+  flex: 1;
+}
+
+.contact_label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(0, 255, 127, 0.9);
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contact_value {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  word-break: break-all;
+}
+
+.contact_value:hover {
+  color: rgba(0, 255, 127, 0.9);
+  text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+}
+
+.contact_value_text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* QR Code Modal */
+.qrcode_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.qrcode_modal {
+  background: linear-gradient(135deg, rgba(20, 20, 40, 0.98) 0%, rgba(15, 25, 50, 0.98) 100%);
+  border: 2px solid rgba(0, 255, 127, 0.5);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 255, 127, 0.3);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.qrcode_close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: rgba(0, 255, 127, 0.8);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+}
+
+.qrcode_close:hover {
+  color: rgba(0, 255, 127, 0.9);
+  text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+}
+
+.qrcode_title {
+  font-size: 1.5rem;
+  color: rgba(0, 255, 127, 0.9);
+  text-align: center;
+  margin: 0 0 25px 0;
+  letter-spacing: 1px;
+}
+
+.qrcode_placeholder {
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(135deg, rgba(0, 255, 127, 0.15), rgba(0, 255, 127, 0.15));
+  border: 2px dashed rgba(0, 255, 127, 0.4);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.qrcode_placeholder p {
+  color: rgba(0, 255, 127, 0.6);
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact_body {
+    padding: 40px 15px;
+  }
+
+  .contact_title {
+    font-size: 2.5rem;
+    margin-bottom: 35px;
+  }
+
+  .contact_item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .icon_wrapper {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+  }
+
+  .contact_value {
+    font-size: 1rem;
+  }
+
+  .qrcode_modal {
+    padding: 30px 20px;
+  }
+
+  .qrcode_placeholder {
+    width: 240px;
+    height: 240px;
+  }
+}

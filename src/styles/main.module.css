@@ -1,11 +1,12 @@
 .main {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0;
+  justify-content: space-between;
+  padding: 0 40px;
   background-color: var(--black);
   height: calc(100vh - var(--header-height) - var(--footer-height));
-  overflow: hidden;
+  overflow-y: auto;
+  gap: 40px;
 }
 
 .mainImage {
@@ -13,6 +14,120 @@
   height: 100%;
   object-fit: contain;
   animation: floatingEffect 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.gadgetSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+}
+
+.gadgetSection::-webkit-scrollbar {
+  width: 6px;
+}
+
+.gadgetSection::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.gadgetSection::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.gadgetSection::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.gadgetTitle {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  color: var(--white);
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.gadgetContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gadgetCard {
+  border: 1px solid rgba(65, 135, 255, 0.6);
+  border-radius: 10px;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(65, 135, 255, 0.1) 0%, rgba(30, 100, 200, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 20px rgba(65, 135, 255, 0.3),
+    inset 0 0 20px rgba(65, 135, 255, 0.05);
+  transition: all 0.3s ease;
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+.gadgetCard:hover {
+  border-color: rgba(65, 135, 255, 1);
+  box-shadow: 
+    0 0 30px rgba(65, 135, 255, 0.6),
+    inset 0 0 30px rgba(65, 135, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.gadgetHeader {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(65, 135, 255, 0.4);
+}
+
+.gadgetName {
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  color: var(--white);
+  margin: 0 0 3px 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(65, 135, 255, 0.5);
+}
+
+.gadgetModel {
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  color: rgba(176, 184, 200, 0.8);
+  margin: 0;
+  font-style: italic;
+}
+
+.gadgetSpecs {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+}
+
+.specLabel {
+  color: rgba(65, 135, 255, 0.9);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 8px rgba(65, 135, 255, 0.3);
+}
+
+.specValue {
+  color: var(--white);
+  padding-left: 10px;
+  border-left: 2px solid rgba(65, 135, 255, 0.5);
+  font-weight: 500;
+  font-size: 0.9em;
 }
 
 @keyframes floatingEffect {
@@ -22,7 +137,7 @@
   }
 
   50% {
-    transform: translateY(-15px) scale(1.02);
+    transform: translateY(-15px) scale(1.08);
     opacity: 1;
   }
 
@@ -31,3 +146,60 @@
     opacity: 0.95;
   }
 }
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(65, 135, 255, 0.3),
+      inset 0 0 20px rgba(65, 135, 255, 0.05);
+  }
+
+  50% {
+    box-shadow: 
+      0 0 30px rgba(65, 135, 255, 0.5),
+      inset 0 0 25px rgba(65, 135, 255, 0.1);
+  }
+}
+
+@media (max-width: 1200px) {
+  .main {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .mainImage {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .gadgetSection {
+    max-height: none;
+    flex: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+
+  .gadgetTitle {
+    font-size: var(--heading3);
+  }
+
+  .gadgetCard {
+    padding: 15px;
+  }
+
+  .gadgetName {
+    font-size: 1.1rem;
+  }
+
+  .specItem {
+    font-size: 0.85rem;
+  }
+}
+
