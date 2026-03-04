@@ -1,134 +1,219 @@
 .profile_body {
-    display: flex;
-    align-items: center;
-    /* 垂直方向中央揃え */
-    justify-content: center;
-    /* 水平方向中央揃え */
-    padding: 40px;
-    background-color: var(--cyan);
-    height: calc(100vh - var(--header-height) - var(--footer-height));
+  display: flex;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  padding: 0 40px;
+  background-color: var(--black);
 }
 
 .icon_section {
-    display: flex;
-    justify-content: center;
-    /* 水平方向の中央揃え */
-    align-items: center;
-    /* 垂直方向の中央揃えも必要なら */
-    flex-direction: column;
-    /* 縦並びに指定 */
-    width: 50%;
-    /* 必要に応じて調整 */
-    height: 100%;
-    gap: 2em;
-    background-color: var(--cyan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  padding: 80px 40px;
+  gap: 1em;
+  background-color: var(--black);
 }
 
 .profile_icon {
-    /* アイコンのスタイル */
-    width: 100px;
-    /* サイズを調整 */
-    height: 100px;
-    border-radius: 50%;
-    /* 丸くする */
-    object-fit: cover;
-    /* 画像のアスペクト比を維持 */
-    margin-bottom: 10px;
-    /* 下のマージンで名前との間隔を調整 */
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile_name_wrapper {
-    /* .profile_name のラッパー */
-    position: relative;
-    /* 相対位置指定 */
-    display: inline-block;
-    /* 幅を内容に合わせて調整 */
+  position: relative;
+  display: inline-block;
 }
 
 .profile_name {
-    color: var(--black);
-    font-size: 48px;
-    font-weight: bold;
-    border-bottom: 2px solid var(--black);
-    padding-bottom: 5px;
-    font-family: Impact, Arial, sans-serif;
-    text-align: center;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    /* Smooth transition for color changes */
+  font-family: Impact, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--white);
+  text-align: center;
+  border-bottom: 2px solid var(--white);
+  padding-bottom: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  /* Smooth transition for color changes */
 }
 
 .profile_name:hover {
-    color: black;
+  color: var(--main-theme);
 }
 
 .profile_name:active {
-    color: var(--white);
+  color: var(--white);
 }
 
 .detail_popup {
-    position: absolute;
-    top: 100%;
-    /* .profile_name の下端からの位置 */
-    left: 0;
-    width: 100%;
-    /* .profile_name の幅に合わせる */
-    font-size: 18px;
-    padding: 10px;
-    z-index: 1;
-    box-sizing: border-box;
-    /* paddingを含めた幅にする */
+  position: absolute;
+  width: 100%;
+  font-family: Impact, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+  box-sizing: border-box;
+  line-height: 1.4;
+  z-index: 1;
+  color: var(--white);
 }
 
 .profile_section {
-    width: 50%;
-    /* 必要に応じて調整 */
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    /* 水平方向の中央揃え */
-    flex-direction: column;
-    /* 縦並びに指定 */
-    background-color: var(--cyan);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  padding: 120px 40px;
+  background-color: var(--black);
 }
 
 .detail_item {
-    font-size: 48px;
-    font-weight: bold;
-    color: var(--black);
-    border-bottom: 2px solid var(--black);
-    padding-bottom: 5px;
-    font-family: Impact, Arial, sans-serif;
-    text-align: center;
+  font-family: Impact, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--white);
+  text-align: center;
+  border-bottom: 2px solid var(--white);
+  padding-bottom: 5px;
 }
 
 .detail_item:hover {
-    color: var(--white);
+  color: var(--main-theme);
 }
 
 .screenOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    z-index: 2000;
-    pointer-events: none;
-    animation: slideDown 0.2s ease-in-out forwards;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.92);
+  color: white;
+  z-index: 2000;
+  pointer-events: none;
+  animation: slideDown 0.8s ease-in-out forwards;
 }
 
 @keyframes slideDown {
-    0% {
-      transform: translateY(-100%); /* 開始位置: 画面上部 */
-      opacity: 0; /* 非表示 */
-    }
-    100% {
-      transform: translateY(0); /* 終了位置: 元の位置 */
-      opacity: 1; /* 表示 */
-    }
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+    /* 開始位置: 画面上部 */
+    /* 非表示 */
   }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    /* 終了位置: 元の位置 */
+    /* 表示 */
+  }
+}
+
+.skills_container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.skills_section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section_title {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  border-bottom: 3px solid rgba(38, 246, 255, 0.6);
+  padding-bottom: 10px;
+  letter-spacing: 1.5px;
+}
+
+.skill_category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid rgba(38, 246, 255, 0.5);
+}
+
+.category_title {
+  font-size: 17px;
+  font-weight: bold;
+  color: rgba(38, 246, 255, 0.9);
+  display: flex;
+  align-items: center;
+}
+
+.skill_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill_tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(38, 246, 255, 0.2),
+    rgba(255, 61, 242, 0.2)
+  );
+  border: 1px solid rgba(38, 246, 255, 0.4);
+  border-radius: 18px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  animation: slideInTag 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideInTag {
+  from {
+    opacity: 0;
+    transform: translateX(-10px) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.skill_tag:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(38, 246, 255, 0.4),
+    rgba(255, 61, 242, 0.4)
+  );
+  border-color: rgba(38, 246, 255, 0.8);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(38, 246, 255, 0.3);
+}

@@ -49,6 +49,93 @@ export default function Profile_body() {
     setOverlayContent(content);
   };
 
+  /*
+  *　　スキルオーバーレイに表示しているコンテンツ
+  */
+  const skillsContent = (
+    <div className={styles.skills_container}>
+      <div className={styles.skills_section}>
+        <div className={styles.section_title}>【実務経験】</div>
+
+        <div className={styles.skill_category}>
+          <div className={styles.category_title}>
+            言語
+          </div>
+          <div className={styles.skill_tags}>
+            {['Java', 'Objective-C', 'C#'].map((skill, i) => (
+              <span key={i} className={styles.skill_tag} style={{ animationDelay: `${i * 0.1}s` }}>
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.skill_category}>
+          <div className={styles.category_title}>
+            フレームワーク
+          </div>
+          <div className={styles.skill_tags}>
+            {['Android Java', '.NET Framework', 'Entity Framework', 'UIKit'].map((skill, i) => (
+              <span key={i} className={styles.skill_tag} style={{ animationDelay: `${i * 0.1}s` }}>
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.skill_category}>
+          <div className={styles.category_title}>
+            クラウドサービス
+          </div>
+          <div className={styles.skill_tags}>
+            {['Azure', 'AWS (S3)', 'Google Cloud'].map((skill, i) => (
+              <span key={i} className={styles.skill_tag} style={{ animationDelay: `${i * 0.1}s` }}>
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.skill_category}>
+          <div className={styles.category_title}>
+            データベース
+          </div>
+          <div className={styles.skill_tags}>
+            {['Azure SQL Server', 'MySQL'].map((skill, i) => (
+              <span key={i} className={styles.skill_tag} style={{ animationDelay: `${i * 0.1}s` }}>
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.skill_category}>
+          <div className={styles.category_title}>
+            オペレーティングシステム
+          </div>
+          <div className={styles.skill_tags}>
+            {['Windows', 'Android', 'Android Automotive', 'iOS', 'MacOS'].map((skill, i) => (
+              <span key={i} className={styles.skill_tag} style={{ animationDelay: `${i * 0.1}s` }}>
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.skills_section}>
+        <div className={styles.section_title}>【個人開発】</div>
+        <div className={styles.skill_tags}>
+          {['Linux', 'React', 'Next.js', 'JavaScript', 'HTML', 'CSS', 'Spring Framework'].map((skill, i) => (
+            <span key={i} className={styles.skill_tag} style={{ animationDelay: `${i * 0.1}s` }}>
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   const handleItemMouseLeave = () => {
     setOverlayContent(null);
   };
@@ -56,8 +143,8 @@ export default function Profile_body() {
   return (
     <div className={styles.profile_body}>
       <div className={styles.icon_section}>
-        <img src="./favicon.ico" alt="Profile Icon" className="profile_icon" />
-        <div className={styles.profile_name_wrapper}> {/* ラッパーを追加 */}
+        <img src="/Images/self-portrait.png" alt="Profile Icon" className={styles.profile_icon} />
+        <div className={styles.profile_name_wrapper}>
           <div
             className={styles.profile_name}
             onClick={handleClick}
@@ -65,15 +152,12 @@ export default function Profile_body() {
             onMouseLeave={handleMouseLeave}>
             Tsuyoshi Shoji
           </div>
-          {/* ホバー時に表示する詳細 */}
           {isHovered && (
             <div className={styles.detail_popup}>
-              庄司 剛<br />
-              生年月日 : 1996/02/26 (28)<br />
-              血液型 : B型<br />
-              北海学園大学 経営学部<br />
-              {/* Hokkai Gakuen Univ.<br />
-              Business Administration<br /> */}
+              System Engineer<br />
+              1996/02/26（30）<br />
+              Hokkai Gakuen Univ.<br />
+              Graduated 2018<br />
             </div>
           )}
         </div>
@@ -87,9 +171,15 @@ export default function Profile_body() {
             <div
               key={index}
               className={styles.detail_item}
-              style={{ opacity: 0, transform: 'translateY(-10px)', transition: 'opacity 0.3s ease, transform 0.3s ease' }}
+              style={{ opacity: 0, transform: 'translateY(-10px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}
               ref={(el) => detailitemsRef.current[index] = el}
-              onMouseEnter={isVisible ? () => handleItemMouseEnter(item + " Overlay Content") : null}
+              onMouseEnter={isVisible ? () => {
+                if (item === "Skills") {
+                  handleItemMouseEnter(skillsContent);
+                } else {
+                  handleItemMouseEnter(item + " Overlay Content");
+                }
+              } : null}
               onMouseLeave={handleItemMouseLeave}
             >
               {item}
@@ -99,7 +189,7 @@ export default function Profile_body() {
       </div>
 
       {overlayContent && ( // Conditionally render overlay
-        <div className={styles.screenOverlay}>
+        <div key={`${overlayContent}-${Date.now()}`} className={styles.screenOverlay}>
           {overlayContent}
         </div>
       )}
