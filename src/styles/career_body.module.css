@@ -157,30 +157,47 @@
 
 @media (max-width: 768px) {
   .language_toggle_container {
-    padding: 20px 10px;
+    padding: 10px 8px;
+  }
+
+  .button_container {
+    margin-bottom: 15px;
   }
 
   .button {
-    padding: 12px 40px;
-    font-size: 1em;
+    padding: 8px 20px;
+    font-size: 0.75em;
   }
 
   .career_list {
     width: 100%;
-    gap: 15px;
+    gap: 10px;
   }
 
   .career_card {
-    padding: 15px;
+    padding: 10px;
+  }
+
+  .card_inner {
+    padding: 10px 10px 8px;
   }
 
   .project_title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: 0.95em;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+  }
+
+  .career_item {
+    margin-bottom: 6px;
   }
 
   .label {
-    min-width: 100px;
-    font-size: 0.9em;
+    min-width: 70px;
+    font-size: 0.7em;
+  }
+
+  .value {
+    font-size: 0.75em;
   }
 }

@@ -1,6 +1,6 @@
 import styles from "@/styles/profile_body.module.css"
 import hobbiesStyles from "@/styles/hobbies_contents.module.css"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import LocateBody from "@/components/locate_body"
 import HistoryContents from "@/components/history_contents"
 import { HOBBIES_DATA } from "@/res/hobbiesData"
@@ -8,9 +8,23 @@ import { HOBBIES_DATA } from "@/res/hobbiesData"
 export default function Profile_body() {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [overlayContent, setOverlayContent] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const detailitemsRef = useRef([]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleClick = () => {
     if (isAnimating) return; //連打抑止
@@ -167,11 +181,11 @@ export default function Profile_body() {
           <div
             className={styles.profile_name}
             onClick={handleClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>
+            onMouseEnter={!isMobile ? handleMouseEnter : null}
+            onMouseLeave={!isMobile ? handleMouseLeave : null}>
             Tsuyoshi Shoji
           </div>
-          {isHovered && (
+          {(isHovered || isMobile) && (
             <div className={styles.detail_popup}>
               System Engineer<br />
               1996/02/26（30）<br />
@@ -192,7 +206,7 @@ export default function Profile_body() {
               className={styles.detail_item}
               style={{ opacity: 0, transform: 'translateY(-10px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}
               ref={(el) => detailitemsRef.current[index] = el}
-              onMouseEnter={isVisible ? () => {
+              onMouseEnter={!isMobile && isVisible ? () => {
                 if (item === "Skills") {
                   handleItemMouseEnter(skillsContent);
                 } else if (item === "Location") {
@@ -205,7 +219,20 @@ export default function Profile_body() {
                   handleItemMouseEnter(item + " Overlay Content");
                 }
               } : null}
-              onMouseLeave={handleItemMouseLeave}
+              onMouseLeave={!isMobile ? handleItemMouseLeave : null}
+              onClick={isMobile && isVisible ? () => {
+                if (item === "Skills") {
+                  handleItemMouseEnter(skillsContent);
+                } else if (item === "Location") {
+                  handleItemMouseEnter(<LocateBody />);
+                } else if (item === "Hobbies") {
+                  handleItemMouseEnter(hobbiesContent);
+                } else if (item === "History") {
+                  handleItemMouseEnter(historyContent);
+                } else {
+                  handleItemMouseEnter(item + " Overlay Content");
+                }
+              } : null}
             >
               {item}
             </div>
@@ -215,6 +242,14 @@ export default function Profile_body() {
 
       {overlayContent && ( // Conditionally render overlay
         <div key={`${overlayContent}-${Date.now()}`} className={styles.screenOverlay}>
+          {isMobile && (
+            <button
+              onClick={handleItemMouseLeave}
+              className={styles.closeButton}
+              aria-label="Close">
+              ×
+            </button>
+          )}
           {overlayContent}
         </div>
       )}

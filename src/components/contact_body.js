@@ -30,8 +30,9 @@ export default function Contact_body() {
             </div>
             <div className={styles.info_wrapper}>
               <h3 className={styles.contact_label}>Phone</h3>
-              <a href="tel:+81-90-xxxx-xxxx" className={styles.contact_value}>
-                090-XXXX-XXXX
+              <a className={`${styles.contact_value} ${styles.contact_value_phone}`}>
+                メールにてお問い合わせください。<br />
+                電話ご希望の方は別途、番号をお送りいたします。
               </a>
             </div>
           </div>

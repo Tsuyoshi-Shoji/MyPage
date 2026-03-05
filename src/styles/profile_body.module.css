@@ -99,6 +99,7 @@
   z-index: 2000;
   pointer-events: none;
   animation: slideDown 0.8s ease-in-out forwards;
+  overflow-y: auto;
 }
 
 @keyframes slideDown {
@@ -226,6 +227,31 @@
   max-width: 700px;
 }
 
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 2001;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.closeButton:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 .history_text {
   font-size: 1.1rem;
   color: var(--white);
@@ -249,5 +275,113 @@
   }
   50%, 100% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile_body {
+    flex-direction: column;
+    padding: 0 20px;
+    height: auto;
+  }
+
+  .icon_section {
+    width: 100%;
+    padding: 20px 20px;
+    gap: 1.5em;
+  }
+
+  .profile_icon {
+    width: 160px;
+    height: 160px;
+  }
+
+  .profile_name {
+    font-size: 32px;
+    position: relative;
+  }
+
+  .profile_name::after {
+    content: 'Tap here';
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+
+  .detail_popup {
+    font-size: 14px;
+  }
+
+  .profile_section {
+    width: 100%;
+    padding: 40px 20px;
+    margin-top: 38px;
+  }
+
+  .detail_item {
+    font-size: 20px;
+  }
+
+  .section_title {
+    font-size: 20px;
+  }
+
+  .category_title {
+    font-size: 15px;
+  }
+
+  .skill_tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  .history_text {
+    font-size:12px;
+  }
+
+  .skills_container {
+    max-width: 100%;
+    width: 100%;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .skills_section {
+    gap: 15px;
+  }
+
+  .section_title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .skill_category {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .category_title {
+    font-size: 13px;
+  }
+
+  .skill_tag {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .history_container {
+    max-width: 100%;
+    width: 100%;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .screenOverlay {
+    pointer-events: auto;
   }
 }
