@@ -1,15 +1,15 @@
 export const WORKS_DATA = [
   {
     id: 1,
-    name: "Portfolio Site",
-    thumbnail: "Images/TBD.png",
-    url: "#"
+    name: "Photographer Portfolio",
+    thumbnail: "Images/thumbnail/Works1.png",
+    url: "https://develop.d12lpzeiiapgx8.amplifyapp.com/"
   },
   {
     id: 2,
-    name: "Web App Project",
-    thumbnail: "Images/TBD.png",
-    url: "#"
+    name: "Darts Bar",
+    thumbnail: "Images/thumbnail/Works2.png",
+    url: "https://dart-bar-etoile.com/"
   },
   {
     id: 3,
