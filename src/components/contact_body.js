@@ -1,4 +1,5 @@
 import styles from "@/styles/contact_body.module.css"
+import Image from "next/image"
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons"
@@ -62,8 +63,14 @@ export default function Contact_body() {
                 ✕
               </button>
               <h3 className={styles.qrcode_title}>LINE QR Code</h3>
-              <div className={styles.qrcode_placeholder}>
-                <p>Coming Soon...</p>
+              <div className={styles.qrcode_image_container}>
+                <Image
+                  src="/Images/qr_line.JPG"
+                  alt="LINE QR Code"
+                  width={300}
+                  height={300}
+                  priority
+                />
               </div>
             </div>
           </div>

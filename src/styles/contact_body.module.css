@@ -215,6 +215,19 @@
   text-align: center;
 }
 
+.qrcode_image_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.qrcode_image_container img {
+  max-width: 280px;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .contact_body {
