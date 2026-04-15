@@ -21,7 +21,7 @@ export const WORKS_DATA = [
     id: 4,
     name: "Cafe&Bar",
     thumbnail: "Images/thumbnail/waterseven-susukino.jpg",
-    url: "https://waterseven-susukino.com"
+    url: "https://watarseven-susukino.com"
   },
   {
     id: 5,
