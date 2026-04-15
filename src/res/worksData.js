@@ -14,13 +14,13 @@ export const WORKS_DATA = [
   {
     id: 3,
     name: "Itarian Bal",
-    thumbnail: "Images/TBD.png",
+    thumbnail: "Images/thumbnail/atarta-susukino.jpg",
     url: "https://atarta-susukino.com"
   },
   {
     id: 4,
     name: "Cafe&Bar",
-    thumbnail: "Images/TBD.png",
+    thumbnail: "Images/thumbnail/waterseven-susukino.jpg",
     url: "https://waterseven-susukino.com"
   },
   {
