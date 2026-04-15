@@ -15,7 +15,7 @@ export const WORKS_DATA = [
     id: 3,
     name: "Itarian Bal",
     thumbnail: "Images/TBD.png",
-    url: "htts://atarta-susukino.com"
+    url: "https://atarta-susukino.com"
   },
   {
     id: 4,
