@@ -13,15 +13,15 @@ export const WORKS_DATA = [
   },
   {
     id: 3,
-    name: "Design System",
+    name: "Itarian Bal",
     thumbnail: "Images/TBD.png",
-    url: "#"
+    url: "htts://atarta-susukino.com"
   },
   {
     id: 4,
-    name: "Mobile App",
+    name: "Cafe&Bar",
     thumbnail: "Images/TBD.png",
-    url: "#"
+    url: "https://waterseven-susukino.com"
   },
   {
     id: 5,
