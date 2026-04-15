@@ -8,7 +8,7 @@ export const WORKS_DATA = [
   {
     id: 2,
     name: "Darts Bar",
-    thumbnail: "Images/thumbnail/Works2.png",
+    thumbnail: "Images/thumbnail/works2.png",
     url: "https://dart-bar-etoile.com/"
   },
   {
