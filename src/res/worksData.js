@@ -20,8 +20,8 @@ export const WORKS_DATA = [
   {
     id: 4,
     name: "Cafe&Bar",
-    thumbnail: "Images/thumbnail/waterseven-susukino.jpg",
-    url: "https://watarseven-susukino.com"
+    thumbnail: "Images/thumbnail/watarseven-susukino.jpg",
+    url: "https://waterseven-susukino.com"
   },
   {
     id: 5,
