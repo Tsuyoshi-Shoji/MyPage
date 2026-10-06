@@ -1,14 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type { CareerItem } from "@/data/portfolio";
 
-type CareerStage = {
-  period: string;
-  role: string;
-  description: string;
-};
-
-export function CareerTimeline({ items }: { items: CareerStage[] }) {
+export function CareerTimeline({ items }: { items: CareerItem[] }) {
   const timelineRef = useRef<HTMLOListElement>(null);
 
   useEffect(() => {
@@ -127,6 +122,16 @@ export function CareerTimeline({ items }: { items: CareerStage[] }) {
               <h3>{item.role}</h3>
               <span className="career-index micro-label">0{index + 1}</span>
               <p className="career-description">{item.description}</p>
+              {item.responsibilities && (
+                <div className="career-responsibilities">
+                  <p className="micro-label">主な業務</p>
+                  <ul>
+                    {item.responsibilities.map((responsibility) => (
+                      <li key={responsibility}>{responsibility}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </li>

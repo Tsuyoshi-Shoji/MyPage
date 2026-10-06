@@ -397,14 +397,14 @@ a:focus-visible {
   content: "";
 }
 
-.career-list li {
+.career-list > li {
   position: relative;
   min-height: 118px;
   padding: 0 18px;
   border-left: 1px solid var(--border);
 }
 
-.career-list li:first-child {
+.career-list > li:first-child {
   padding-left: 0;
   border-left: 0;
 }
@@ -421,7 +421,7 @@ a:focus-visible {
   background: var(--background);
 }
 
-.career-list li:first-child .career-node {
+.career-list > li:first-child .career-node {
   left: 0;
 }
 
@@ -914,8 +914,7 @@ a:focus-visible {
   font-weight: 400;
 }
 
-.career-detail-timeline div p,
-.career-role-grid article > p:not(.micro-label) {
+.career-detail-timeline div p {
   margin: 0;
   font-size: 14px;
   line-height: 1.9;
@@ -933,14 +932,17 @@ a:focus-visible {
   margin-top: 14px;
 }
 
-.career-role-grid h3 {
-  font-size: 20px;
-  font-weight: 400;
+.career-responsibilities > p {
+  margin: 18px 0 8px;
 }
 
-.career-values {
-  display: grid;
-  gap: 28px;
+.career-responsibilities ul {
+  margin: 0;
+  padding-left: 1.2em;
+  list-style: disc;
+  color: var(--secondary);
+  font-size: 13px;
+  line-height: 1.9;
 }
 
 .works-disclosure {
@@ -1201,11 +1203,6 @@ a:focus-visible {
   .detail-columns--four,
   .contact-flow {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .career-values {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
-    align-items: center;
   }
 
   .selected-works {
@@ -1595,19 +1592,19 @@ a:focus-visible {
     transform-origin: center top;
   }
 
-  .career-list li,
-  .career-list li:first-child {
+  .career-list > li,
+  .career-list > li:first-child {
     min-height: 0;
     padding: 0 0 22px 12px;
     border: 0;
   }
 
-  .career-list li:last-child {
+  .career-list > li:last-child {
     padding-bottom: 0;
   }
 
   .career-node,
-  .career-list li:first-child .career-node {
+  .career-list > li:first-child .career-node {
     top: 0;
     left: -22px;
   }

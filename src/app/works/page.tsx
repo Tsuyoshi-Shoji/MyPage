@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DetailPage, DetailSection, ImagePlaceholder, PageIntro } from "@/components/layout/DetailPage";
-import { ExperienceSection } from "@/components/sections/HomeSections";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
   "/works",
   "Works | 庄司剛",
-  "庄司剛の公開制作物と実務プロジェクトへの参画経験。ポートフォリオサイトを紹介し、その他の制作物は公開準備中です。",
+  "庄司剛の公開制作物。ポートフォリオサイトを紹介し、その他の制作物は公開準備中です。",
 );
 
 const works = [
@@ -20,7 +19,7 @@ const works = [
 export default function WorksPage() {
   return (
     <DetailPage current="/works">
-      <PageIntro title="WORKS" subtitle="つくったもの。関わったもの。" description="自身で制作した公開可能な成果物と、実務プロジェクトへの参画経験を紹介します。制作物の画像や詳細は準備中です。" topics={["WEB", "MOBILE", "SYSTEM", "CLOUD", "PRODUCT"]} />
+      <PageIntro title="WORKS" subtitle="つくったもの。関わったもの。" description="自身で制作した公開可能な成果物を紹介します。制作物の画像や詳細は準備中です。" topics={["WEB", "MOBILE", "SYSTEM", "CLOUD", "PRODUCT"]} />
       <DetailSection number="01" title="SELECTED WORKS">
         <p className="detail-muted works-disclosure">公開できる制作物を順次掲載します。準備中の項目は掲載用の仮枠です。</p>
         <div className="selected-works">
@@ -43,7 +42,6 @@ export default function WorksPage() {
           ))}
         </div>
       </DetailSection>
-      <ExperienceSection number="02" />
     </DetailPage>
   );
 }
