@@ -9,6 +9,7 @@ export type CareerItem = {
   period: string;
   role: string;
   description: string;
+  responsibilities?: string[];
 };
 
 export const career: CareerItem[] = [
@@ -31,6 +32,61 @@ export const career: CareerItem[] = [
     period: "04-2026 ～ PRESENT",
     role: "FREELANCE",
     description: "より柔軟な開発環境で価値を生み出し、企画から実装までを一貫して支援できる存在を目指す。",
+  },
+];
+
+export const careerTimeline = [
+  {
+    period: "2014",
+    role: "大学入学",
+    description: "札幌の大学に入学。情報工学を専攻し、プログラミングの基礎を学ぶ。この頃からものづくりやテクノロジーに強い関心を持つ。",
+  },
+  {
+    period: "2018",
+    role: "大学卒業",
+    description: "大学を卒業。新卒でソフトウェア開発の会社に入社し、テストエンジニアとしてキャリアをスタート。",
+  },
+  {
+    period: "2019 - 2021",
+    role: "開発エンジニアへ",
+    description: "テスト業務で得た知見を活かし、モバイルアプリの開発エンジニアに。Android（Java）を中心に、iOSやバックエンドの開発も経験。",
+  },
+  {
+    period: "2021 - 2023",
+    role: "チームリーダー",
+    description: "5名規模のチームをリード。要件定義・設計・実装・テスト・リリースまで一貫して担当し、最大20名規模のプロジェクトにも参画。",
+  },
+  {
+    period: "2024 - 現在",
+    role: "フリーランス",
+    description: "より自由に、より本質的なプロダクトづくりに挑戦するため独立。個人開発や受託開発、技術支援など幅広く活動中。",
+  },
+];
+
+export const workExperiences = [
+  {
+    period: "2018 - 2019",
+    role: "TESTER",
+    description: "ソフトウェアテストの基礎を学び、品質の重要性やものづくりのプロセスを理解。",
+    responsibilities: ["テスト設計", "テスト実施", "不具合報告・管理"],
+  },
+  {
+    period: "2019 - 2021",
+    role: "DEVELOPER",
+    description: "モバイルアプリの開発に携わり、実装力を磨く。Android（Java）を中心に、iOSアプリ開発も経験。",
+    responsibilities: ["Androidアプリ開発（Java）", "iOSアプリ開発（Objective-C）", "機能設計・実装・テスト"],
+  },
+  {
+    period: "2021 - 2023",
+    role: "TEAM LEADER",
+    description: "5〜20名規模のチームをリードし、開発プロセスの改善とチームの成果最大化に取り組む。",
+    responsibilities: ["チームマネジメント", "要件定義・設計", "スケジュール管理", "クライアントとの調整"],
+  },
+  {
+    period: "2024 - PRESENT",
+    role: "FREELANCE",
+    description: "受託開発・技術支援に加え、個人開発にも注力。ビジネスと技術の両面から価値を生み出す。",
+    responsibilities: ["Web / モバイルアプリ開発", "バックエンド開発", "クラウド環境構築・運用", "個人開発プロダクトの企画・開発"],
   },
 ];
 

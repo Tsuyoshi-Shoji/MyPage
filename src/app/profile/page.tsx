@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { DetailPage, DetailSection, ImagePlaceholder } from "@/components/layout/DetailPage";
-import { CareerSection, ExperienceSection } from "@/components/sections/HomeSections";
 import { skillGroups, values } from "@/data/portfolio";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -45,9 +44,7 @@ export default function ProfilePage() {
           ))}
         </div>
       </DetailSection>
-      <CareerSection />
-      <ExperienceSection />
-      <DetailSection number="05" title="VALUES">
+      <DetailSection number="03" title="VALUES">
         <div className="detail-columns detail-columns--three value-grid">
           {values.map((value, index) => (
             <article key={value.title}>
@@ -59,7 +56,7 @@ export default function ProfilePage() {
           ))}
         </div>
       </DetailSection>
-      <DetailSection number="06" title="INTERESTS">
+      <DetailSection number="04" title="INTERESTS">
         <p className="detail-muted">仕事以外の活動や興味については、公開準備中です。</p>
       </DetailSection>
     </DetailPage>

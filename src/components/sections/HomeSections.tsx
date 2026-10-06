@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Code2, Mail, MessageCircle, Phone, type LucideIcon } from "lucide-react";
 import { CareerTimeline } from "./CareerTimeline";
-import { career, contactOptions, skillGroups } from "@/data/portfolio";
+import { career, contactOptions, skillGroups, type CareerItem } from "@/data/portfolio";
 
 const contactIcons: Record<string, LucideIcon> = {
   LINE: MessageCircle,
@@ -122,21 +122,25 @@ export function ProfileSection() {
   );
 }
 
-export function CareerSection() {
+export function CareerSection({ number = "03", showDetailLink = true, items = career }: {
+  number?: string;
+  showDetailLink?: boolean;
+  items?: CareerItem[];
+}) {
   return (
     <section className="section" id="career" aria-labelledby="career-title">
       <div className="section__inner">
         <div className="career-layout">
           <div className="career-intro">
-            <SectionKicker number="03">CAREER</SectionKicker>
+            <SectionKicker number={number}>CAREER</SectionKicker>
             <h2 className="visually-hidden" id="career-title">
               Career progression from tester to freelance engineer
             </h2>
             <p className="career-side-note">FROM EXPERIENCE TO A BROADER IMPACT.</p>
           </div>
-          <CareerTimeline items={career} />
+          <CareerTimeline items={items} />
         </div>
-        <Link className="text-link section-detail-link" href="/career">VIEW CAREER</Link>
+        {showDetailLink && <Link className="text-link section-detail-link" href="/career">VIEW CAREER</Link>}
       </div>
     </section>
   );
